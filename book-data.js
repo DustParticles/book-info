@@ -1,3 +1,5 @@
+let library = [];
+
 function bookMaker(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -8,3 +10,7 @@ function bookMaker(title, author, pages, read) {
     return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
   };
 }
+
+function addBookToLibrary(title, author, pages, read) {}
+
+function displayBook() {}
