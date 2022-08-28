@@ -13,18 +13,36 @@
   src: url(font/BebasNeue-Regular.ttf);
 }
 
+form {
+  outline: 2px solid red;
+}
+
 html,
 body {
   padding: 0%;
   margin: 0%;
 }
 
+body {
+  background-color: #f8fafc;
+}
+
 img {
   border-radius: 5px;
 }
 
-body {
-  background-color: #f8fafc;
+button {
+  border-radius: 5px;
+  border: none;
+  transition: 500ms;
+}
+
+button:hover {
+  background-color: #d6d3d1;
+}
+
+input {
+  border-radius: 5px;
 }
 
 .header {
@@ -43,10 +61,62 @@ body {
   /* grid-template-columns: ; */
 }
 
+.add_book_button {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  height: 75px;
+  width: 75px;
+  padding: 0%;
+  border: none;
+  outline: 2px solid #a3a3a3;
+  background-color: #e5e5e5;
+  border-radius: 10px;
+}
+
+.overlay {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: fixed;
+
+  z-index: 700;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  bottom: 0%;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(68, 64, 60, 0.5);
+}
+
+.overlay.open {
+  display: flex;
+}
+
+.overlay_contents {
+  position: fixed;
+  z-index: 1000;
+  background-color: rgba(76, 175, 80, 1);
+}
+
+.add_book_form {
+  display: flex;
+
+  flex-wrap: wrap;
+  gap: 20px;
+  opacity: 1;
+  background-color: cadetblue;
+  padding: 50px;
+  width: 500px;
+  cursor: auto;
+}
+
 .cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 17px;
 }
 
 .card {
