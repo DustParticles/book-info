@@ -43,3 +43,11 @@ function createCard() {
     card_Container.append(create_Book);
   }
 }
+let overlay = document.querySelector(".overlay");
+let overlay_close_button = document.querySelector(".overlay_close_button");
+let add_Book_Button = document.querySelector(".add_book_button");
+add_Book_Button.addEventListener("click", toggleBookOverlayButton);
+overlay_close_button.addEventListener("click", toggleBookOverlayButton);
+function toggleBookOverlayButton() {
+  overlay.classList.toggle("open");
+}
