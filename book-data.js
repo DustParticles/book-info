@@ -21,10 +21,12 @@ function bookMaker(title, author, pages, read) {
 
 function addBookToLibrary(title, author, pages, read) {
   let book_Info = new bookMaker(title, author, pages, read);
-  library.push(bookInfo);
+  library.push(book_Info);
 }
 
-function createCard() {
+// displays all books in library
+function createCards() {
+  removeCards();
   for (const book of library) {
     //alert(`${book.title} ${book.author} ${book.pages} ${book.read}`);
     let card_Container = document.querySelector(".cards");
@@ -43,11 +45,47 @@ function createCard() {
     card_Container.append(create_Book);
   }
 }
+
+function removeCards() {
+  let cards = document.querySelectorAll(".card");
+  cards.forEach((card) => {
+    card.remove();
+  });
+}
+
 let overlay = document.querySelector(".overlay");
 let overlay_close_button = document.querySelector(".overlay_close_button");
 let add_Book_Button = document.querySelector(".add_book_button");
 add_Book_Button.addEventListener("click", toggleBookOverlayButton);
 overlay_close_button.addEventListener("click", toggleBookOverlayButton);
+
 function toggleBookOverlayButton() {
   overlay.classList.toggle("open");
 }
+
+function resetFormValues() {
+  document.querySelector(".add_book_form").reset();
+}
+
+let submit_button = document.querySelector(".submit_button");
+submit_button.addEventListener("click", addBook);
+
+//add book to library
+
+function addBook() {
+  let book_title = document.querySelector(".book_title_input").value;
+  let book_author = document.querySelector(".book_author_input").value;
+  let book_pages = document.querySelector(".book_pages_input").value;
+  //let book_cover = document.querySelector(".book_cover_input").value;
+  let book_read_or_not = document.querySelector(
+    'input[name="read_or_not"]:checked'
+  ).value;
+
+  addBookToLibrary(book_title, book_author, book_pages, book_read_or_not);
+  createCards();
+  resetFormValues();
+  toggleBookOverlayButton();
+}
+
+//display book
+createCards();
