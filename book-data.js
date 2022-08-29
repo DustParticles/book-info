@@ -27,6 +27,7 @@ function addBookToLibrary(title, author, pages, read) {
 // displays all books in library
 function createCards() {
   removeCards();
+  let counter = 0;
   for (const book of library) {
     //alert(`${book.title} ${book.author} ${book.pages} ${book.read}`);
     let card_Container = document.querySelector(".cards");
@@ -42,7 +43,9 @@ function createCards() {
     
     `;
     create_Book.setAttribute("class", "card");
+    create_Book.setAttribute("data-list-index", `${counter}`);
     card_Container.append(create_Book);
+    ++counter;
   }
 }
 
@@ -51,6 +54,11 @@ function removeCards() {
   cards.forEach((card) => {
     card.remove();
   });
+}
+
+function removeSpecificCard(index) {
+  library.splice(index, 1);
+  createCards();
 }
 
 let overlay = document.querySelector(".overlay");
