@@ -34,12 +34,24 @@ function createCards() {
     let create_Book = document.createElement("div");
 
     create_Book.innerHTML = `
-    <div class="img_container"><img class="book_cover" src="https://m.media-amazon.com/images/I/41mlivt589L._AC_SY780_.jpg" alt="book cover"></div><div class="book_title" title="${book.title}">${book.title}</div>  
-    <div class="author"><p class="actual_author_name">${book.author}</p>
-    <div class="book_metadata"><span>pages ${book.pages}</span>  <span>read ${book.read}</span></div>
-    <svg class="info_card" style="" viewBox="0 0 24 24">
-    <path fill="currentColor" d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
-     </svg></div> 
+    <div class="img_container">
+      <div class="more_info_container"><button class="more_info_button"></button>
+                
+                  <svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"
+                    />
+                  </svg>
+                </button>
+              <button data-list-index="${counter}" onclick="removeSpecificCard(this)" class="remove_card">Delete</button></div>
+      <img class="book_cover" src="https://m.media-amazon.com/images/I/41mlivt589L._AC_SY780_.jpg" alt="book cover"></div>
+      <div class="book_title" title="${book.title}">${book.title}</div>  
+      <div class="author"><p class="actual_author_name">${book.author}</p>
+      <div class="book_metadata"><span>pages ${book.pages}</span>  <span>read ${book.read}</span></div>
+      <svg class="info_card" style="" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+       </svg></div> 
     
     `;
     create_Book.setAttribute("class", "card");
@@ -56,8 +68,9 @@ function removeCards() {
   });
 }
 
-function removeSpecificCard(index) {
-  library.splice(index, 1);
+function removeSpecificCard(element) {
+  let get_index = element.getAttribute("data-list-index");
+  library.splice(get_index, 1);
   createCards();
 }
 
@@ -96,4 +109,4 @@ function addBook() {
 }
 
 //display book
-createCards();
+//createCards();
