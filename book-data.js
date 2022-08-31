@@ -1,3 +1,12 @@
+let overlay = document.querySelector(".overlay");
+
+// Listen for when interacted
+let overlay_close_button = document.querySelector(".overlay_close_button");
+let add_Book_Button = document.querySelector(".add_book_button");
+
+add_Book_Button.addEventListener("click", toggleBookOverlayButton);
+overlay_close_button.addEventListener("click", toggleBookOverlayButton);
+
 let library = [
   { title: "ninja", author: "tyler blevins", pages: 69, read: false },
   {
@@ -35,7 +44,7 @@ function createCards() {
 
     create_Book.innerHTML = `
     <div class="img_container">
-      <div class="more_info_container"><button class="more_info_button"></button>
+      <div class="more_info_container"><button data-list-index="${counter}" onclick="toggleDeleteButton(this)" class="more_info_button"></button>
                 
                   <svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
                     <path
@@ -74,14 +83,21 @@ function removeSpecificCard(element) {
   createCards();
 }
 
-let overlay = document.querySelector(".overlay");
-let overlay_close_button = document.querySelector(".overlay_close_button");
-let add_Book_Button = document.querySelector(".add_book_button");
-add_Book_Button.addEventListener("click", toggleBookOverlayButton);
-overlay_close_button.addEventListener("click", toggleBookOverlayButton);
-
 function toggleBookOverlayButton() {
   overlay.classList.toggle("open");
+}
+
+function toggleDeleteButton(element) {
+  // check elements index\
+  let index = element.getAttribute("data-list-index");
+  // then select the right delete button index and toggle
+  let delete_button = document.querySelector(
+    `.remove_card[data-list-index="${index}"]`
+  );
+  console.log(delete_button);
+  delete_button.classList.toggle("open");
+
+  /* element.classList.toggle("open"); */
 }
 
 function resetFormValues() {
@@ -101,7 +117,6 @@ function addBook() {
   let book_read_or_not = document.querySelector(
     'input[name="read_or_not"]:checked'
   ).value;
-
   addBookToLibrary(book_title, book_author, book_pages, book_read_or_not);
   createCards();
   resetFormValues();
@@ -109,4 +124,4 @@ function addBook() {
 }
 
 //display book
-//createCards();
+createCards();
