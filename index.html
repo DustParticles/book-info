@@ -17,15 +17,18 @@
       <div class="content">
         <div class="cards">
           <div class="card">
-            title: "ninja", author: "tyler blevins", pages: 69, read: false
-          </div>
-          <div class="card">ye</div>
-          <div class="card">yee</div>
-          <div class="card">yeee</div>
-          <div class="card">yeeee</div>
-          <div class="card">yeeee</div>
-          <div class="card">
             <div class="img_container">
+              <div class="more_info_container">
+                <button class="more_info_button">
+                  <svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"
+                    />
+                  </svg>
+                </button>
+                <button class="remove_card">Delete</button>
+              </div>
               <img
                 class="book_cover"
                 src="https://m.media-amazon.com/images/I/41mlivt589L._AC_SY780_.jpg"
@@ -38,9 +41,11 @@
               <div class="author">
                 <p class="actual_author_name">tyler blevins</p>
                 <div class="book_metadata">
-                  <span>pages 69</span>
+                  <span class="info_card_text">pages 69</span>
 
-                  <span>read false</span>
+                  <button class="read_button_flip">
+                    <span class="info_card_text">Read</span>
+                  </button>
                 </div>
                 <svg class="info_card" style="" viewBox="0 0 24 24">
                   <path
@@ -56,7 +61,7 @@
       <div class="overlay">
         <div class="overlay_contents">
           <button class="overlay_close_button">&#10006;</button>
-          <form class="add_book_form" action="">
+          <form class="add_book_form" action="" onsubmit="return false;">
             <input
               type="text"
               placeholder="Title"
@@ -76,10 +81,9 @@
               required
             />
             <input
-              type="text"
+              type="file"
               placeholder="Book Cover"
               class="book_cover_input"
-              required
             />
             <div class="read_or_not_container">
               <label for="has_read_input">Read</label>
@@ -87,7 +91,7 @@
                 type="radio"
                 placeholder="read or not"
                 name="read_or_not"
-                value="Yes"
+                value="true"
                 id="has_read_input"
                 class="book_read_or_not_input"
                 required
@@ -98,13 +102,13 @@
                 type="radio"
                 placeholder="read or not"
                 name="read_or_not"
-                value="No"
+                value=""
                 id="not_read_input"
                 class="book_read_or_not_input"
                 required
               />
             </div>
-            <button>Add</button>
+            <button type="submit" class="submit_button">Add</button>
           </form>
         </div>
       </div>
