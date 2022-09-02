@@ -1,5 +1,5 @@
 let overlay = document.querySelector(".overlay");
-
+let read_status_button = document.querySelector(".read_button_flip");
 // Listen for when interacted
 let overlay_close_button = document.querySelector(".overlay_close_button");
 let add_Book_Button = document.querySelector(".add_book_button");
@@ -28,6 +28,15 @@ function bookMaker(title, author, pages, read) {
   };
 }
 
+bookMaker.prototype.change_read = function () {
+  if (this.read == true) {
+    this.read = false;
+  } else {
+    this.read = true;
+  }
+  return this.read;
+};
+
 function addBookToLibrary(title, author, pages, read) {
   let book_Info = new bookMaker(title, author, pages, read);
   library.push(book_Info);
@@ -44,20 +53,27 @@ function createCards() {
 
     create_Book.innerHTML = `
     <div class="img_container">
-      <div class="more_info_container"><button data-list-index="${counter}" onclick="toggleDeleteButton(this)" class="more_info_button"></button>
+      <div class="more_info_container">
                 
-                  <svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"
-                    />
-                  </svg>
-                </button>
+              <button class="more_info_button">
+              <svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"
+                />
+              </svg>
+            </button>
+                
               <button data-list-index="${counter}" onclick="removeSpecificCard(this)" class="remove_card">Delete</button></div>
       <img class="book_cover" src="https://m.media-amazon.com/images/I/41mlivt589L._AC_SY780_.jpg" alt="book cover"></div>
       <div class="book_title" title="${book.title}">${book.title}</div>  
       <div class="author"><p class="actual_author_name">${book.author}</p>
-      <div class="book_metadata"><span>pages ${book.pages}</span>  <span>read ${book.read}</span></div>
+      <div class="book_metadata">
+          <span class="info_card_text">Pages ${book.pages}</span>
+          <button data-list-index="${counter}" onclick="toggleReadStatus(this)" class="read_button_flip">
+            <span class="info_card_text">${book.read ? "Read" : "Unread"}</span>
+          </button>
+      </div>
       <svg class="info_card" style="" viewBox="0 0 24 24">
       <path fill="currentColor" d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
        </svg></div> 
@@ -65,9 +81,29 @@ function createCards() {
     `;
     create_Book.setAttribute("class", "card");
     create_Book.setAttribute("data-list-index", `${counter}`);
+    /*     create_Book.onclick = (e) => {
+      console.log(
+        e.target.closest(".read_button_flip"),
+        e.target.getAttribute("data-list-index")
+      );
+    }; */
     card_Container.append(create_Book);
     ++counter;
   }
+}
+
+// detect when person clicks on change read button add it to create card
+
+// then call function to change
+
+function toggleReadStatus(element) {
+  // figure out index of book
+  console.log("bruh?");
+  let index = element.getAttribute("data-list-index");
+  // change book value in library
+  let status = library[`${index}`].change_read();
+  // then change cards display read
+  createCards();
 }
 
 function removeCards() {
@@ -124,4 +160,4 @@ function addBook() {
 }
 
 //display book
-createCards();
+/* createCards(); */
