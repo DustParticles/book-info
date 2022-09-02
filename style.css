@@ -159,15 +159,15 @@ input {
   cursor: pointer;
 }
 
-.more_info_container:hover {
+/* .more_info_container:hover {
   background-color: rgba(245, 245, 245, 0.4);
   outline: 1px solid rgba(163, 163, 163, 0.7);
-}
+} */
 
 .more_info_button {
   position: absolute;
   z-index: 3;
-  /* right: 12px; */
+  right: 1px;
   padding: 0%;
   background-color: transparent;
   cursor: pointer;
@@ -175,13 +175,13 @@ input {
   height: 24px;
 }
 
-/* .more_info_button:hover {
+.more_info_button:hover {
   background-color: rgba(245, 245, 245, 0.4);
   outline: 1px solid rgba(163, 163, 163, 0.7);
-} */
+}
 
 .remove_card {
-  display: none;
+  display: block;
   position: absolute;
 
   cursor: pointer;
@@ -250,6 +250,27 @@ input {
 }
 .info_card {
   height: 20px;
+  font-size: 11px;
+}
+
+.read_button_flip {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.read_button_flip:hover {
+  background-color: rgba(203, 213, 225, 0.5);
+  outline: 1px solid rgba(163, 163, 163, 0.7);
+  box-shadow: 0px 2px 5 px rgba(163, 163, 163, 0.7);
+}
+
+.info_card_text {
+  color: #a8a29e;
+  font-family: BebasNeue, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 32.9px;
 }
 
 .book_metadata {
@@ -262,10 +283,6 @@ input {
   padding: 3px;
   border-radius: 5px;
 
-  font-family: BebasNeue;
-  font-size: 11px;
-
-  color: #a8a29e;
   background-color: #fafafa;
   transition: 300ms;
 }
