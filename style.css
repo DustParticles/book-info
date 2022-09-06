@@ -13,10 +13,6 @@
   src: url(font/BebasNeue-Regular.ttf);
 }
 
-form {
-  outline: 2px solid red;
-}
-
 svg {
   position: relative;
 }
@@ -41,14 +37,53 @@ button {
   transition: 500ms;
 }
 
-.submit_button:hover,
-.overlay_close_button:hover,
 .add_book_button:hover {
   background-color: #d6d3d1;
 }
 
+.submit_button {
+  background-color: #ff7dcb;
+  color: #83ded2;
+  font-weight: 600;
+  font-family: BebasNeue;
+  font-size: 12px;
+  letter-spacing: 1px;
+  width: 69px;
+  height: 23px;
+}
+.submit_button:hover {
+  background-color: #f5c1e5;
+}
+
+.submit_button:focus {
+  background-color: #ffe0f7;
+}
+
+.overlay_close_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  font-size: 16px;
+  color: #dc2626;
+  font-weight: 900;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.overlay_close_button:hover {
+  color: #e6231cf5;
+}
+
 input {
+  border: none;
   border-radius: 5px;
+}
+
+input:focus {
+  border: none;
+  outline: #f5c1e5;
+  box-shadow: 0px 0px 4px 1px #482254;
 }
 
 .header {
@@ -67,7 +102,7 @@ input {
 }
 
 .add_book_button {
-  position: fixed;
+  position: absolute;
   cursor: pointer;
   right: 20px;
   bottom: 20px;
@@ -75,9 +110,18 @@ input {
   width: 75px;
   padding: 0%;
   border: none;
-  outline: 2px solid #a3a3a3;
-  background-color: #e5e5e5;
+  outline: 2px solid #d6d3d1;
+  background-color: #fafaf9;
+  color: #44403c;
   border-radius: 10px;
+}
+
+.add_book_button:hover {
+  background-color: #f4f4f5;
+}
+
+.add_book_button:focus {
+  background-color: #e7e5e4;
 }
 
 .overlay {
@@ -102,21 +146,94 @@ input {
 }
 
 .overlay_contents {
-  position: fixed;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
   z-index: 1000;
-  background-color: rgba(76, 175, 80, 1);
+  background-color: #764ead;
+  border-radius: 5px;
+  outline: 2px solid #482254;
 }
 
 .add_book_form {
   display: flex;
-
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 20px;
   opacity: 1;
-  background-color: cadetblue;
+  background-color: #8f8cf3;
   padding: 50px;
   width: 500px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   cursor: auto;
+  outline: 2px solid #482254;
+}
+
+.input_container_one,
+.input_container_two {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.input_one,
+.input_two {
+  display: flex;
+  flex-direction: column;
+
+  color: #fb6cff;
+  font-weight: 599;
+  font-family: BebasNeue, Verdana, Geneva, Tahoma, sans-serif;
+  letter-spacing: 1px;
+}
+
+.required_input::after {
+  content: " *";
+  font-size: x-small;
+  color: #dc2626;
+}
+.optional::after {
+  content: " (optional)";
+  font-size: x-small;
+  color: lightgrey;
+}
+
+.book_title_input,
+.book_author_input,
+.book_pages_input,
+.book_cover_input {
+  background-color: #ffe0f7;
+  padding: 4px;
+  transition: 250ms;
+
+  font-size: 10px;
+
+  height: 17px;
+  width: 180px;
+}
+
+.book_read_or_not_input:focus {
+  box-shadow: none;
+}
+
+.input_container_three {
+  display: flex;
+  justify-content: space-around;
+  gap: 25px;
+}
+
+.read_or_not_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  color: #fb6cff;
+  font-weight: 599;
+  font-size: 12px;
+  font-family: BebasNeue, Verdana, Geneva, Tahoma, sans-serif;
+  letter-spacing: 1px;
 }
 
 .cards {
@@ -255,7 +372,7 @@ input {
   content: "Author: ";
   font-weight: 900;
   font-size: 13px;
-  font-family: system-ui;
+  font-family: system-ui, Verdana, Geneva, Tahoma, sans-serif;
   overflow: hidden;
 }
 .info_card {
