@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>ninjas in paris</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -47,12 +47,14 @@
                     <span class="info_card_text">Read</span>
                   </button>
                 </div>
-                <svg class="info_card" style="" viewBox="0 0 24 24">
-                  <path
-                    fill="currentColor"
-                    d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
-                  ></path>
-                </svg>
+                <div>
+                  <svg class="info_card" style="" viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+                    ></path>
+                  </svg>
+                </div>
               </div>
             </div>
           </div>
@@ -62,53 +64,82 @@
         <div class="overlay_contents">
           <button class="overlay_close_button">&#10006;</button>
           <form class="add_book_form" action="" onsubmit="return false;">
-            <input
-              type="text"
-              placeholder="Title"
-              class="book_title_input"
-              required
-            />
-            <input
-              type="text"
-              placeholder="Author"
-              class="book_author_input"
-              required
-            />
-            <input
-              type="number"
-              placeholder="Pages"
-              class="book_pages_input"
-              required
-            />
-            <input
-              type="file"
-              placeholder="Book Cover"
-              class="book_cover_input"
-            />
-            <div class="read_or_not_container">
-              <label for="has_read_input">Read</label>
-              <input
-                type="radio"
-                placeholder="read or not"
-                name="read_or_not"
-                value="true"
-                id="has_read_input"
-                class="book_read_or_not_input"
-                required
-              />
-
-              <label for="not_read_input">Not read</label>
-              <input
-                type="radio"
-                placeholder="read or not"
-                name="read_or_not"
-                value=""
-                id="not_read_input"
-                class="book_read_or_not_input"
-                required
-              />
+            <div class="input_container_one">
+              <div class="input_one">
+                <label class="required_input" for="book_title_input"
+                  >Book Title</label
+                >
+                <input
+                  type="text"
+                  placeholder="Title"
+                  class="book_title_input"
+                  required
+                />
+              </div>
+              <div class="input_two">
+                <label class="required_input" for="book_pages_input"
+                  >Pages</label
+                >
+                <input
+                  type="number"
+                  placeholder="Pages"
+                  class="book_pages_input"
+                  required
+                />
+              </div>
             </div>
-            <button type="submit" class="submit_button">Add</button>
+            <div class="input_container_two">
+              <div class="input_one">
+                <label class="required_input" for="book_author_input"
+                  >Author</label
+                >
+                <input
+                  type="text"
+                  placeholder="Author"
+                  class="book_author_input"
+                  required
+                />
+              </div>
+              <div class="input_two">
+                <label class="optional" for="book_cover_input"
+                  >Book Cover</label
+                >
+                <input
+                  type="url"
+                  placeholder="image address"
+                  class="book_cover_input"
+                />
+              </div>
+            </div>
+            <div class="input_container_three">
+              <div class="read_or_not_container">
+                <div class="radio_button_one">
+                  <label for="has_read_input">Read</label>
+                  <input
+                    type="radio"
+                    placeholder="read or not"
+                    name="read_or_not"
+                    value="true"
+                    id="has_read_input"
+                    class="book_read_or_not_input"
+                    required
+                  />
+                </div>
+                <div class="radio_button_two">
+                  <label for="not_read_input">Not read</label>
+                  <input
+                    type="radio"
+                    placeholder="read or not"
+                    name="read_or_not"
+                    value=""
+                    id="not_read_input"
+                    class="book_read_or_not_input"
+                    required
+                  />
+                </div>
+              </div>
+              <button type="submit" class="submit_button">Add</button>
+            </div>
           </form>
         </div>
       </div>
