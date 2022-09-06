@@ -1,5 +1,3 @@
-let who_clicked;
-let clicked_card_button = false;
 let overlay = document.querySelector(".overlay");
 let read_status_button = document.querySelector(".read_button_flip");
 // Listen for when interacted
@@ -19,10 +17,11 @@ let library = [
   },
 ];
 
-function bookMaker(title, author, pages, read) {
+function bookMaker(title, author, pages, book_cover, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
+  this.book_cover = book_cover;
   this.read = read;
 
   this.info = function () {
@@ -31,7 +30,7 @@ function bookMaker(title, author, pages, read) {
 }
 
 bookMaker.prototype.change_read = function () {
-  if (this.read == true) {
+  if (this.read) {
     this.read = false;
   } else {
     this.read = true;
@@ -39,8 +38,8 @@ bookMaker.prototype.change_read = function () {
   return this.read;
 };
 
-function addBookToLibrary(title, author, pages, read) {
-  let book_Info = new bookMaker(title, author, pages, read);
+function addBookToLibrary(title, author, pages, book_cover, read) {
+  let book_Info = new bookMaker(title, author, pages, book_cover, read);
   library.push(book_Info);
 }
 
@@ -67,11 +66,13 @@ function createCards() {
             </button>
                 
               <button data-list-index="${counter}" onclick="removeSpecificCard(this)" class="remove_card">Delete</button></div>
-      <img class="book_cover" src="https://m.media-amazon.com/images/I/41mlivt589L._AC_SY780_.jpg" alt="book cover"></div>
+      <img class="book_cover" src="${book.book_cover}" alt="book cover"></div>
       <div class="book_title" title="${book.title}">${book.title}</div>  
       <div class="author"><p class="actual_author_name">${book.author}</p>
       <div class="book_metadata">
-          <span class="info_card_text">Pages ${book.pages}</span>
+          <span title="${book.pages}" class="info_card_text">Pages ${
+      book.pages
+    }</span>
           <button data-list-index="${counter}" onclick="toggleReadStatus(this)" class="read_button_flip">
             <span class="info_card_text">${book.read ? "Read" : "Unread"}</span>
           </button>
@@ -141,8 +142,6 @@ function toggleDeleteButton(element) {
   // check elements index
   let index = element.getAttribute("data-list-index");
 
-  who_clicked = index;
-  console.log(who_clicked);
   changeIcon(element);
   // then select the right delete button index and toggle
   let delete_button = document.querySelector(
@@ -165,15 +164,27 @@ function addBook() {
   let book_title = document.querySelector(".book_title_input").value;
   let book_author = document.querySelector(".book_author_input").value;
   let book_pages = document.querySelector(".book_pages_input").value;
-  //let book_cover = document.querySelector(".book_cover_input").value;
+  let book_cover = document.querySelector(".book_cover_input").value;
   let book_read_or_not = document.querySelector(
     'input[name="read_or_not"]:checked'
   ).value;
-  addBookToLibrary(book_title, book_author, book_pages, book_read_or_not);
+  addBookToLibrary(
+    book_title,
+    book_author,
+    book_pages,
+    book_cover,
+    book_read_or_not
+  );
   createCards();
   resetFormValues();
   toggleBookOverlayButton();
 }
-
+addBookToLibrary(
+  "The Illusion",
+  "unkown?",
+  1337,
+  "https://i0.wp.com/blog.frontiersin.org/wp-content/uploads/2022/05/frontiers-human-neuroscience-expanding-hole-illusion.jpg?ssl=1",
+  false
+);
 //display book
 createCards();
