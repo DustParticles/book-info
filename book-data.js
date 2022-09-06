@@ -1,3 +1,5 @@
+let who_clicked;
+let clicked_card_button = false;
 let overlay = document.querySelector(".overlay");
 let read_status_button = document.querySelector(".read_button_flip");
 // Listen for when interacted
@@ -55,12 +57,12 @@ function createCards() {
     <div class="img_container">
       <div class="more_info_container">
                 
-              <button class="more_info_button">
-              <svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
-                <path
-                  fill="currentColor"
-                  d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"
-                />
+              <button data-list-index="${counter}" onclick="toggleDeleteButton(this)" class="more_info_button">
+              <svg data-list-index="${counter}" class="up_arrow open" style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z" />
+              </svg>
+              <svg data-list-index="${counter}" class="down_arrow" style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
               </svg>
             </button>
                 
@@ -83,14 +85,10 @@ function createCards() {
     `;
     create_Book.setAttribute("class", "card");
     create_Book.setAttribute("data-list-index", `${counter}`);
-    /*     create_Book.onclick = (e) => {
-      console.log(
-        e.target.closest(".read_button_flip"),
-        e.target.getAttribute("data-list-index")
-      );
-    }; */
     card_Container.append(create_Book);
     ++counter;
+
+    // Close the dropdown menu if the user clicks outside of it
   }
 }
 
@@ -101,6 +99,7 @@ function createCards() {
 function toggleReadStatus(element) {
   // figure out index of book
   console.log("bruh?");
+  console.log(element);
   let index = element.getAttribute("data-list-index");
   // change book value in library
   let status = library[`${index}`].change_read();
@@ -121,21 +120,36 @@ function removeSpecificCard(element) {
   createCards();
 }
 
+function changeIcon(element) {
+  let get_index = element.getAttribute(`data-list-index`);
+  let up_arrow = document.querySelector(
+    `.up_arrow[data-list-index="${get_index}"]`
+  );
+  let down_arrow = document.querySelector(
+    `.down_arrow[data-list-index="${get_index}"]`
+  );
+  up_arrow.classList.toggle("open");
+  down_arrow.classList.toggle("open");
+}
+
 function toggleBookOverlayButton() {
   overlay.classList.toggle("open");
 }
 
 function toggleDeleteButton(element) {
-  // check elements index\
+  console.log("jeb_");
+  // check elements index
   let index = element.getAttribute("data-list-index");
+
+  who_clicked = index;
+  console.log(who_clicked);
+  changeIcon(element);
   // then select the right delete button index and toggle
   let delete_button = document.querySelector(
     `.remove_card[data-list-index="${index}"]`
   );
   console.log(delete_button);
   delete_button.classList.toggle("open");
-
-  /* element.classList.toggle("open"); */
 }
 
 function resetFormValues() {
@@ -162,4 +176,4 @@ function addBook() {
 }
 
 //display book
-/* createCards(); */
+createCards();
