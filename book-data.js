@@ -7,15 +7,7 @@ let add_Book_Button = document.querySelector(".add_book_button");
 add_Book_Button.addEventListener("click", toggleBookOverlayButton);
 overlay_close_button.addEventListener("click", toggleBookOverlayButton);
 
-let library = [
-  { title: "ninja", author: "tyler blevins", pages: 69, read: false },
-  {
-    title: "What if the world was flat?",
-    author: "flat man",
-    pages: 100,
-    read: false,
-  },
-];
+let library = [];
 
 function bookMaker(title, author, pages, book_cover, read) {
   this.title = title;
@@ -184,6 +176,13 @@ addBookToLibrary(
   "unkown?",
   1337,
   "https://i0.wp.com/blog.frontiersin.org/wp-content/uploads/2022/05/frontiers-human-neuroscience-expanding-hole-illusion.jpg?ssl=1",
+  false
+);
+addBookToLibrary(
+  "how to play computer",
+  "Tyler Blevins",
+  69,
+  "https://m.media-amazon.com/images/I/41mlivt589L._AC_SY780_.jpg",
   false
 );
 //display book
