@@ -24,6 +24,9 @@ body {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   background-color: #f8fafc;
 }
 
@@ -98,11 +101,6 @@ input:focus {
 
 .logo {
   height: 80px;
-}
-
-.content {
-  display: grid;
-  /* grid-template-columns: ; */
 }
 
 .add_book_button {
@@ -244,6 +242,8 @@ input:focus {
   display: flex;
   flex-wrap: wrap;
   gap: 17px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .card {
@@ -255,8 +255,6 @@ input:focus {
   flex-direction: column;
   box-shadow: 2px 3px 10px #e7e5e4;
 }
-
-/* Stock Price Prediction, a referential approach on how to predict the stock price using */
 
 .img_container {
   display: flex;
@@ -279,11 +277,6 @@ input:focus {
   height: 24px;
   cursor: pointer;
 }
-
-/* .more_info_container:hover {
-  background-color: rgba(245, 245, 245, 0.4);
-  outline: 1px solid rgba(163, 163, 163, 0.7);
-} */
 
 .more_info_button {
   position: absolute;
@@ -354,13 +347,6 @@ input:focus {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* .book_title {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-} */
 
 .author {
   display: flex;
