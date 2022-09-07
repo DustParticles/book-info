@@ -4,8 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ninjas in paris</title>
+    <title>Library shush 🤫</title>
     <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="icon"
+      href="https://media.giphy.com/media/Sh7FMlRTsgB8lO8WKJ/giphy.gif"
+    />
   </head>
   <body>
     <div class="header">
@@ -14,145 +19,143 @@
         alt="logo"
         class="logo"
       />
-      <div class="content">
-        <div class="cards">
-          <div class="card">
-            <div class="img_container">
-              <div class="more_info_container">
-                <button class="more_info_button">
-                  <svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"
-                    />
-                  </svg>
-                </button>
-                <button class="remove_card">Delete</button>
-              </div>
-              <img
-                class="book_cover"
-                src="https://m.media-amazon.com/images/I/41mlivt589L._AC_SY780_.jpg"
-                alt="book cover"
-              />
+      <h1>Library 🤫</h1>
+    </div>
+    <div class="content">
+      <div class="cards">
+        <div class="card">
+          <div class="img_container">
+            <div class="more_info_container">
+              <button class="more_info_button">
+                <svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"
+                  />
+                </svg>
+              </button>
+              <button class="remove_card">Delete</button>
             </div>
+            <img
+              class="book_cover"
+              src="https://m.media-amazon.com/images/I/41mlivt589L._AC_SY780_.jpg"
+              alt="book cover"
+            />
+          </div>
 
-            <div class="book_info">
-              <div class="book_title">Stock Price Prediction,ajohnjohn</div>
-              <div class="author">
-                <p class="actual_author_name">tyler blevins</p>
-                <div class="book_metadata">
-                  <span class="info_card_text">pages 69</span>
+          <div class="book_info">
+            <div class="book_title">Stock Price Prediction,ajohnjohn</div>
+            <div class="author">
+              <p class="actual_author_name">tyler blevins</p>
+              <div class="book_metadata">
+                <span class="info_card_text">pages 69</span>
 
-                  <button class="read_button_flip">
-                    <span class="info_card_text">Read</span>
-                  </button>
-                </div>
-                <div>
-                  <svg class="info_card" style="" viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
-                    ></path>
-                  </svg>
-                </div>
+                <button class="read_button_flip">
+                  <span class="info_card_text">Read</span>
+                </button>
+              </div>
+              <div>
+                <svg class="info_card" style="" viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+                  ></path>
+                </svg>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="overlay">
-        <div class="overlay_contents">
-          <button class="overlay_close_button">&#10006;</button>
-          <form class="add_book_form" action="" onsubmit="return false;">
-            <div class="input_container_one">
-              <div class="input_one">
-                <label class="required_input" for="book_title_input"
-                  >Book Title</label
-                >
-                <input
-                  type="text"
-                  placeholder="Title"
-                  class="book_title_input"
-                  required
-                />
-              </div>
-              <div class="input_two">
-                <label class="required_input" for="book_pages_input"
-                  >Pages</label
-                >
-                <input
-                  type="number"
-                  placeholder="Pages"
-                  class="book_pages_input"
-                  required
-                />
-              </div>
-            </div>
-            <div class="input_container_two">
-              <div class="input_one">
-                <label class="required_input" for="book_author_input"
-                  >Author</label
-                >
-                <input
-                  type="text"
-                  placeholder="Author"
-                  class="book_author_input"
-                  required
-                />
-              </div>
-              <div class="input_two">
-                <label class="optional" for="book_cover_input"
-                  >Book Cover</label
-                >
-                <input
-                  type="url"
-                  placeholder="image address"
-                  class="book_cover_input"
-                />
-              </div>
-            </div>
-            <div class="input_container_three">
-              <div class="read_or_not_container">
-                <div class="radio_button_one">
-                  <label for="has_read_input">Read</label>
-                  <input
-                    type="radio"
-                    placeholder="read or not"
-                    name="read_or_not"
-                    value="true"
-                    id="has_read_input"
-                    class="book_read_or_not_input"
-                    required
-                  />
-                </div>
-                <div class="radio_button_two">
-                  <label for="not_read_input">Not read</label>
-                  <input
-                    type="radio"
-                    placeholder="read or not"
-                    name="read_or_not"
-                    value=""
-                    id="not_read_input"
-                    class="book_read_or_not_input"
-                    required
-                  />
-                </div>
-              </div>
-              <button type="submit" class="submit_button">Add</button>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <button class="add_book_button">
-        <svg style="" viewBox="0 0 24 24">
-          <path
-            fill="currentColor"
-            d="M17 4V10L15 8L13 10V4H9V20H12.1C12.2 20.7 12.5 21.4 12.8 22H7C5.9 22 5 21 5 20V19H3V17H5V13H3V11H5V7H3V5H5V4C5 2.9 5.9 2 7 2H19C20 2 21 3 21 4V13.8C20.4 13.4 19.7 13.2 19 13.1V4H17M5 19H7V17H5V19M5 13H7V11H5V13M5 7H7V5H5V7M17 15V18H14V20H17V23H19V20H22V18H19V15H17Z"
-          />
-        </svg>
-      </button>
     </div>
+    <div class="overlay">
+      <div class="overlay_contents">
+        <button class="overlay_close_button">&#10006;</button>
+        <form class="add_book_form" action="" onsubmit="return false;">
+          <div class="input_container_one">
+            <div class="input_one">
+              <label class="required_input" for="book_title_input"
+                >Book Title</label
+              >
+              <input
+                type="text"
+                placeholder="Title"
+                class="book_title_input"
+                required
+              />
+            </div>
+            <div class="input_two">
+              <label class="required_input" for="book_pages_input">Pages</label>
+              <input
+                type="number"
+                placeholder="Pages"
+                class="book_pages_input"
+                required
+              />
+            </div>
+          </div>
+          <div class="input_container_two">
+            <div class="input_one">
+              <label class="required_input" for="book_author_input"
+                >Author</label
+              >
+              <input
+                type="text"
+                placeholder="Author"
+                class="book_author_input"
+                required
+              />
+            </div>
+            <div class="input_two">
+              <label class="optional" for="book_cover_input">Book Cover</label>
+              <input
+                type="url"
+                placeholder="image address"
+                value=""
+                class="book_cover_input"
+              />
+            </div>
+          </div>
+          <div class="input_container_three">
+            <div class="read_or_not_container">
+              <div class="radio_button_one">
+                <label for="has_read_input">Read</label>
+                <input
+                  type="radio"
+                  placeholder="read or not"
+                  name="read_or_not"
+                  value="true"
+                  id="has_read_input"
+                  class="book_read_or_not_input"
+                  required
+                />
+              </div>
+              <div class="radio_button_two">
+                <label for="not_read_input">Not read</label>
+                <input
+                  type="radio"
+                  placeholder="read or not"
+                  name="read_or_not"
+                  value=""
+                  id="not_read_input"
+                  class="book_read_or_not_input"
+                  required
+                />
+              </div>
+            </div>
+            <button type="submit" class="submit_button">Add</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <button class="add_book_button">
+      <svg style="" viewBox="0 0 24 24">
+        <path
+          fill="currentColor"
+          d="M17 4V10L15 8L13 10V4H9V20H12.1C12.2 20.7 12.5 21.4 12.8 22H7C5.9 22 5 21 5 20V19H3V17H5V13H3V11H5V7H3V5H5V4C5 2.9 5.9 2 7 2H19C20 2 21 3 21 4V13.8C20.4 13.4 19.7 13.2 19 13.1V4H17M5 19H7V17H5V19M5 13H7V11H5V13M5 7H7V5H5V7M17 15V18H14V20H17V23H19V20H22V18H19V15H17Z"
+        />
+      </svg>
+    </button>
   </body>
   <script src="book-data.js"></script>
 </html>
