@@ -104,7 +104,7 @@ input:focus {
 }
 
 .add_book_button {
-  position: absolute;
+  position: fixed;
   cursor: pointer;
   right: 20px;
   bottom: 20px;
@@ -112,18 +112,22 @@ input:focus {
   width: 75px;
   padding: 0%;
   border: none;
-  outline: 2px solid #d6d3d1;
-  background-color: #fafaf9;
-  color: #44403c;
+  outline: 1px solid #c1c1d2;
+  background-color: #e6e6ec;
+  color: #1a1a24;
   border-radius: 10px;
 }
 
 .add_book_button:hover {
-  background-color: #f4f4f5;
+  outline: 1px solid rgba(127, 127, 164, 0.9);
+  background-color: rgba(230, 230, 236, 0.6);
+  color: #0e0e12;
 }
 
 .add_book_button:focus {
-  background-color: #e7e5e4;
+  outline: 1px solid #a6a6bf;
+  background-color: #e6e6ec;
+  color: #333346;
 }
 
 .overlay {
