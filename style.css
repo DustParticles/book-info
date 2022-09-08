@@ -91,9 +91,13 @@ input:focus {
 
 .header {
   display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px;
   height: 80px;
   box-shadow: 2px 2px 19px #e2e8f0;
   background-color: white;
+
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 900;
@@ -101,6 +105,14 @@ input:focus {
 
 .logo {
   height: 80px;
+}
+
+.header_text {
+  font-size: 2em;
+}
+
+.shh_face {
+  height: 32px;
 }
 
 .add_book_button {
