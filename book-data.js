@@ -60,7 +60,9 @@ function createCards() {
               <button data-list-index="${counter}" onclick="removeSpecificCard(this)" class="remove_card">Delete</button></div>
       <img class="book_cover" src="${book.book_cover}" alt="book cover"></div>
       <div class="book_title" title="${book.title}">${book.title}</div>  
-      <div class="author"><p class="actual_author_name">${book.author}</p>
+      <div class="author"><p title="${
+        book.author
+      }" class="actual_author_name">${book.author}</p>
       <div class="book_metadata">
           <span title="${book.pages}" class="info_card_text">Pages ${
       book.pages
@@ -179,7 +181,7 @@ addBookToLibrary(
   false
 );
 addBookToLibrary(
-  "how to play computer",
+  "how to git gud",
   "Tyler Blevins",
   69,
   "https://m.media-amazon.com/images/I/41mlivt589L._AC_SY780_.jpg",
