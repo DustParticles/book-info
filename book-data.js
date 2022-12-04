@@ -9,26 +9,27 @@ overlay_close_button.addEventListener("click", toggleBookOverlayButton);
 
 let library = [];
 
-function bookMaker(title, author, pages, book_cover, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.book_cover = book_cover;
-  this.read = read;
+class bookMaker {
+  constructor(title, author, pages, book_cover, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.book_cover = book_cover;
+    this.read = read;
+    this.info = function () {
+      return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
+    };
+  }
 
-  this.info = function () {
-    return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
+  change_read = function () {
+    if (this.read) {
+      this.read = false;
+    } else {
+      this.read = true;
+    }
+    return this.read;
   };
 }
-
-bookMaker.prototype.change_read = function () {
-  if (this.read) {
-    this.read = false;
-  } else {
-    this.read = true;
-  }
-  return this.read;
-};
 
 function addBookToLibrary(title, author, pages, book_cover, read) {
   let book_Info = new bookMaker(title, author, pages, book_cover, read);
